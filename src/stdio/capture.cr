@@ -79,6 +79,7 @@ module Stdio
     end
 
     @decaptured_out : IO::FileDescriptor?
+
     def decaptured_out
       @decaptured_out ||= begin
         @out.decapture
@@ -88,6 +89,7 @@ module Stdio
     end
 
     @decaptured_err : IO::FileDescriptor?
+
     def decaptured_err
       @decaptured_err ||= begin
         @err.decapture
