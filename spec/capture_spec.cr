@@ -3,15 +3,15 @@ require "./spec_helper"
 module StdioCaptureFeature
   describe name do
     it "captures" do
-      out, err, in = Stdio.capture do |io|
+      output, error, input = Stdio.capture do |io|
         STDOUT.puts ":)"
         STDERR.puts ":("
         io.in.puts ":P"
         [io.out.gets, io.err.gets, STDIN.gets]
       end
-      out.should eq ":)"
-      err.should eq ":("
-      in.should eq ":P"
+      output.should eq ":)"
+      error.should eq ":("
+      input.should eq ":P"
     end
 
     it "keeps capturing" do
